@@ -37,16 +37,16 @@ const Body = () => {
     },
   ];
 
-  useEffect(() =>{
-    const script = document.createElement('script');
-    script.src = 'https://apply.devfolio.co/v2/sdk.js'
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://apply.devfolio.co/v2/sdk.js";
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
     return () => {
       document.body.removeChild(script);
-    }
-}, []);
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -120,7 +120,7 @@ const Body = () => {
 function DesktopBody() {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
-  const shouldHideImage = screenSize < 600; // Hide image for screens smaller than 600px
+  const shouldHideImage = screenSize < 768; // Hide image for screens smaller than 600px
 
   return (
     <div className="flex-grow flex flex-col md:flex-row items-center justify-between mt-[7vh] pt-[60px]">
@@ -174,12 +174,12 @@ function DesktopBody() {
             className="timer-animate m-10"
             targetDate="2025-02-22T00:00:00"
           />
-          <div className="button flex  flex-col md:flex-row  gap-4 md:gap-10 items-center">
-              <DevfolioButton/>
+          <div className="flex px-auto">
+            <DevfolioButton />
 
-            <button className="registerbutton rounded-xl bg-purple-500 p-2">
+            {/* <button className="registerbutton rounded-xl bg-purple-500 p-2">
               <div className=" maintext text-2xl">Brochure</div>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
